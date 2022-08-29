@@ -20,15 +20,15 @@ test('test when click button save in screen real time', async ({dashBoard, page 
     await expect(random_to).toEqual(z);
     // let count_pr=await RealTimeVisitors.getQuantityDisplay(".mdi.mdi-minus-circle-outline.mdi-24px");
 
-    let count_pr_select=Number(count)+Number(REALTIME.arr_product.length);
+    // let count_pr_select=Number(count)+Number(REALTIME.arr_product.length);
     console.log(Number(count))
     
     if(REALTIME.type_display==='product'){
-        await expect(page.locator("//div[@class='s-ml24']/span")).toContainText(count_pr_select+" products selected")
+        await expect(page.locator("//div[@class='s-ml24']/span")).toContainText(count+" products selected")
        // 2 products selected
     }else{
         // 1 collection selected
-        await expect(page.locator("//div[@class='s-ml24']/span")).toContainText(count_pr_select+" collection selected")
+        await expect(page.locator("//div[@class='s-ml24']/span")).toContainText(count+" collection selected")
 
         // await expect(page.locator("//div[@class='s-ml24']/span"))
     }
