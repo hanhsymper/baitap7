@@ -58,20 +58,26 @@ export class RealTimeVisitors extends CommonPage{
             await this.page.waitForSelector(".mdi.mdi-minus-circle-outline.mdi-24px");
             const count= await this.page.$$(".mdi.mdi-minus-circle-outline.mdi-24px");        
             //chọn kiểu hiện thị
+            let data_count=0;
             for(let i of nameDisplay){
+                if(await this.page.locator(`//div[contains(text(),"${i}")]//ancestor::div[contains(@class,'product-selector__item')]//i[@class='mdi mdi-plus-circle-outline mdi-24px']`).isVisible()===true){
                 // if(await this.page.locator(`//div[contains(text(),"${i}")]//ancestor::div[contains(@class,'product-selector__item')]//i[@class='mdi mdi-minus-circle-outline mdi-24px']`).isVisible()===true){
                     // await this.page.locator(`//div[contains(text(),"${i}")]//ancestor::div[contains(@class,'product-selector__item')]//i[@class='mdi mdi-minus-circle-outline mdi-24px']`).click();
                     await this.page.waitForLoadState('domcontentloaded');
                     await this.page.locator(`//div[contains(text(),"${i}")]//ancestor::div[contains(@class,'product-selector__item')]//i[@class='mdi mdi-plus-circle-outline mdi-24px']`).click();
+                    data_count ++;
             // }else{
             //     await this.page.locator(`//div[contains(text(),"${i}")]//ancestor::div[contains(@class,'product-selector__item')]//i[@class='mdi mdi-plus-circle-outline mdi-24px']`).click();
             // }
+        }else{
+            continue;
         }
+    }
             await Promise.all([
                 await this.page.locator(`//span[contains(text(),'Continue with selected products')]`).click(),
                 await this.page.waitForLoadState('domcontentloaded')
               ]);
-              return count.length
+              return count.length+data_count;
     }
 }
 
