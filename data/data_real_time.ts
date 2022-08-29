@@ -4,5 +4,5 @@ export const REALTIME=
         random_to:"120",
         trigger:"Show for some products I specify",
         type_display:"product",
-        arr_product:["quần bò test"],
+        arr_product:["quần bò test","quần bò ống xuông"],
     }
