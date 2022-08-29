@@ -1,0 +1,16 @@
+{
+  "name": "baitapbuoi7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.25.1"
+  },
+  "dependencies": {
+    "color": "^4.2.3"
+  }
+}
