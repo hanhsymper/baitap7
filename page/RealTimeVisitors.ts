@@ -55,6 +55,7 @@ export class RealTimeVisitors extends CommonPage{
             await this.page.locator("//div[@class='s-select s-mr16']//select").selectOption({value:typeDisplay});
             await this.page.locator("//button[@class='s-button s-mr16 is-default']").click();
             await this.page.waitForSelector("//div[@class='s-modal-wrapper']");
+            await this.page.waitForSelector(".mdi.mdi-minus-circle-outline.mdi-24px");
             const count= await this.page.$$(".mdi.mdi-minus-circle-outline.mdi-24px");        
             //chọn kiểu hiện thị
             for(let i of nameDisplay){
