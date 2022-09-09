@@ -6,11 +6,11 @@ import { DashBoard } from '../page/DashBoard';
 import { ACCOUNT } from "../data/data_login"; 
 export const test=base.extend<{home:Home,dashBoard:DashBoard}>({
     home:async({page},use)=>{
-        const login=new Login('shop-test-abc.onshopbase.com',page)
-        const dashBoard = await login.gotoDashBoardByToKen(TOKEN);
-        const home=await dashBoard.openYourSite();
+        const home = new Home('shop-test-hong-hanh.onshopbase.com',page);
+        await home.gotoHome();
+        // const dashBoard = await login.gotoDashBoardByToKen(TOKEN);
+        // const home=await dashBoard.openYourSite();
         use(home);
     }
 
 })
-// export default test;
